@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BulkyWeb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BulkyWeb.Db
 {
@@ -8,5 +9,7 @@ namespace BulkyWeb.Db
         {
                 
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }

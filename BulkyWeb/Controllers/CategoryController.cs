@@ -61,5 +61,21 @@ namespace BulkyWeb.Controllers
             return View(dbCategory);
         }
 
+        [HttpPost]
+        public ActionResult Edit(Category category)
+        {
+            if (category.Name==category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "The Dispaly Order can not exactly match the name");
+            }
+            if (ModelState.IsValid)
+            {
+                _dbContext.Categories.Update(category);
+                _dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
     }
 }

@@ -1,9 +1,6 @@
 ﻿@model List<Category>
+<partial name="_NotificationPartial" />
 <div class="container">
-    @if (TempData["Success"] != null)
-    {
-        <h2>@TempData["Success"]</h2>
-    }
     <div class="row pt-4 pb-3">
         <div class="col-6 text-primary">
             <h2>Category List</h2>

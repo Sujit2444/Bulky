@@ -45,5 +45,21 @@ namespace BulkyWeb.Controllers
             return View();
         }
 
+        public ActionResult Edit(int? categoryId)
+        {
+            if (categoryId == null || categoryId==0)
+            {
+                return NotFound();
+            }
+            Category? dbCategory = _dbContext.Categories.Find(categoryId);
+            //Category? dbCategory2 = _dbContext.Categories.FirstOrDefault(c=>c.ID==categoryId);
+            //Category? dbCategory3 = _dbContext.Categories.Where(c => c.ID == categoryId).FirstOrDefault();
+            if (dbCategory==null)
+            {
+                return NotFound();
+            }
+            return View(dbCategory);
+        }
+
     }
 }
